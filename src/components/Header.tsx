@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, Store, Menu, X, User, Search, LogOut, Package } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { AuthModal } from './AuthModal';
 import { AdminLoginModal } from './AdminLoginModal';
+import { supabase } from '../lib/supabase';
 
 interface HeaderProps {
   onCartClick: () => void;
@@ -16,10 +17,22 @@ export function Header({ onCartClick, onDashboardClick, isAdminLoggedIn = false,
   const { cartCount } = useCart();
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // This would come from a real auth context
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [adminLoginModalOpen, setAdminLoginModalOpen] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsAuthenticated(!!session);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const toggleAuthModal = () => {
     setAuthModalOpen(!authModalOpen);
@@ -29,9 +42,14 @@ export function Header({ onCartClick, onDashboardClick, isAdminLoggedIn = false,
     setAuthMode(authMode === 'login' ? 'register' : 'login');
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     setIsAuthenticated(false);
     setDropdownOpen(false);
+  };
+
+  const handleAuthSuccess = () => {
+    setIsAuthenticated(true);
   };
 
   const toggleMobileMenu = () => {
@@ -312,7 +330,8 @@ export function Header({ onCartClick, onDashboardClick, isAdminLoggedIn = false,
         isOpen={authModalOpen} 
         onClose={toggleAuthModal} 
         mode={authMode} 
-        onSwitchMode={switchAuthMode} 
+        onSwitchMode={switchAuthMode}
+        onAuthSuccess={handleAuthSuccess}
       />
 
       <AdminLoginModal 

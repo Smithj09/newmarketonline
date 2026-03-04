@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
   mode: 'login' | 'register';
   onSwitchMode: () => void;
+  onAuthSuccess?: () => void;
 }
 
-export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProps) {
+export function AuthModal({ isOpen, onClose, mode, onSwitchMode, onAuthSuccess }: AuthModalProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -17,18 +19,55 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
     confirmPassword: '',
   });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     setLoading(true);
     
-    // Simulate authentication process
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setLoading(false);
-    onClose();
+    try {
+      if (mode === 'register') {
+        if (formData.password !== formData.confirmPassword) {
+          setError('Passwords do not match');
+          setLoading(false);
+          return;
+        }
+        
+        const { data, error: signUpError } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+        });
+        
+        if (signUpError) throw signUpError;
+        
+        if (data.user && formData.name) {
+          await supabase.from('profiles').insert({
+            id: data.user.id,
+            full_name: formData.name,
+          }).catch(err => console.warn('Profile creation failed:', err));
+        }
+        
+        alert('Registration successful! Please check your email to verify your account.');
+      } else {
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email: formData.email,
+          password: formData.password,
+        });
+        
+        if (signInError) throw signInError;
+      }
+      
+      setFormData({ email: '', password: '', name: '', confirmPassword: '' });
+      onAuthSuccess?.();
+      onClose();
+    } catch (err: any) {
+      setError(err.message || 'Authentication failed');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +100,12 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
                 ? 'Entrez vos identifiants pour continuer' 
                 : 'Commencez avec DorMark aujourd\'hui'}
             </p>
+            
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
             
             <form onSubmit={handleSubmit} className="space-y-4">
               {mode === 'register' && (
