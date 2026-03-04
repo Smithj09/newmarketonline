@@ -147,7 +147,7 @@ function App() {
         onClose={() => setIsSellerDashboardOpen(false)}
         products={products}
         onAddProduct={() => setIsAddProductOpen(true)}
-        onEditProduct={(product) => {
+        onEditProduct={(product: Product) => {
           setProductToEdit(product);
           setIsEditProductOpen(true);
         }}
