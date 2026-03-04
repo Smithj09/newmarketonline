@@ -23,8 +23,15 @@ function App() {
       <Header onCartClick={() => setIsCartOpen(true)} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-600 to-pink-800 text-white py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-r from-pink-600 to-pink-800 text-white min-h-screen flex items-center justify-center">
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src="https://images.pexels.com/photos/264925/pexels-photo-264925.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+            alt="Market background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Bienvenue sur DorMark</h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl sm:max-w-3xl mx-auto opacity-90">
