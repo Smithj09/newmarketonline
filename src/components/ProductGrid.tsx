@@ -12,9 +12,9 @@ export function ProductGrid({ products, onViewDetails }: ProductGridProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [sortOption, setSortOption] = useState<string>('featured');
 
-  const categories = ['Tout', ...Array.from(new Set(products.map((p) => p.category)))];
+  const categories = ['Kategori', ...Array.from(new Set(products.map((p) => p.category)))];
 
-  let filteredProducts = selectedCategory === 'Tout'
+  let filteredProducts = selectedCategory === 'Kategori'
     ? products
     : products.filter((p) => p.category === selectedCategory);
 

@@ -142,7 +142,7 @@ export const products: Product[] = [
     description: 'A warm and inviting fragrance with notes of Madagascar vanilla, white musk, and sandalwood. Long-lasting scent that captivates the senses.',
     price: 89.99,
     image_url: 'https://images.pexels.com/photos/1369518/pexels-photo-1369518.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Beauty',
+    category: 'Perfum',
     stock: 40,
   },
   {
@@ -151,7 +151,7 @@ export const products: Product[] = [
     description: 'A refreshing blend of sea salt, citrus, and woody notes. Perfect for everyday wear with a clean, masculine scent that lasts all day.',
     price: 74.99,
     image_url: 'https://images.pexels.com/photos/1105787/pexels-photo-1105787.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Beauty',
+    category: 'Perfum',
     stock: 35,
   },
   {
@@ -160,7 +160,7 @@ export const products: Product[] = [
     description: 'An elegant floral fragrance featuring Damask rose, jasmine, and soft amber. A sophisticated scent for special occasions and evening wear.',
     price: 109.99,
     image_url: 'https://images.pexels.com/photos/1170988/pexels-photo-1170988.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Beauty',
+    category: 'Perfum',
     stock: 25,
   },
   {
@@ -169,7 +169,7 @@ export const products: Product[] = [
     description: 'An invigorating blend of grapefruit, bergamot, and lemon zest. Light and refreshing scent perfect for summer days and active lifestyles.',
     price: 34.99,
     image_url: 'https://images.pexels.com/photos/1031681/pexels-photo-1031681.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Beauty',
+    category: 'Perfum',
     stock: 60,
   },
   {
@@ -178,7 +178,7 @@ export const products: Product[] = [
     description: 'A mysterious and seductive blend of dark musk, patchouli, and warm spices. An intense scent for those who appreciate bold fragrances.',
     price: 94.99,
     image_url: 'https://images.pexels.com/photos/1369518/pexels-photo-1369518.jpeg?auto=compress&cs=tinysrgb&w=800',
-    category: 'Beauty',
+    category: 'Perfum',
     stock: 30,
   },
 ];

@@ -32,12 +32,9 @@ function App() {
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl sm:max-w-3xl mx-auto opacity-90">
                 Dekouvri pwodui enteresan yo sitye vann tankou mond lan
               </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+            <div className="flex justify-center">
                 <button className="bg-white text-pink-700 font-bold py-3 px-6 sm:px-8 rounded-lg hover:bg-pink-50 transition-colors shadow-lg">
                   Achte Kounye a
-                </button>
-                <button className="bg-gradient-to-r from-pink-500 to-pink-700 text-white font-bold py-3 px-6 sm:px-8 rounded-lg hover:from-pink-600 hover:to-pink-800 transition-all shadow-lg">
-                  Alòske Plis
                 </button>
               </div>
           </div>
@@ -49,13 +46,13 @@ function App() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         <div className="mb-8 sm:mb-12 text-center">
-          <h2 className="section-title text-2xl sm:text-3xl">
-              Pwodui Sèlèksyone
+            <h2 className="section-title text-2xl sm:text-3xl">
+              Pwodui
             </h2>
             <p className="section-subtitle text-base sm:text-lg">
               Seleksyon fèt pa DorMark
             </p>
-        </div>
+          </div>
 
         <ProductGrid
           products={products}
