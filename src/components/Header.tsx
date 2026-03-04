@@ -54,38 +54,38 @@ export function Header({ onCartClick }: HeaderProps) {
 
             <div className="hidden md:flex items-center gap-6">
               <nav className="flex gap-6">
-                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Paj Prinsipal</a>
-                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Kategori</a>
-                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Of</a>
-                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Kontak</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Accueil</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Catégories</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Offres</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Contact</a>
               </nav>
               
               <div className="relative flex-grow max-w-md">
                 <input
                     type="text"
-                    placeholder="Chache pwodui..."
+                    placeholder="Rechercher des produits..."
                     className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none"
                   />
-                <Search className="w-5 h-5 text-pink-400 absolute left-3 top-2.5" />
+                <Search className="w-4 h-4 text-pink-400 absolute left-2.5 top-2" />
               </div>
             </div>
             
             {/* Mobile Menu - Hidden on desktop */}
             {mobileMenuOpen && (
               <div className="md:hidden fixed inset-0 bg-white z-40 flex flex-col pt-16">
-                <div className="relative px-4 py-3 border-b border-pink-200">
+                <div className="relative px-4 py-2 border-b border-pink-200">
                   <input
                      type="text"
-                     placeholder="Chache pwodui..."
+                     placeholder="Rechercher des produits..."
                      className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm"
                    />
-                  <Search className="w-4 h-4 text-pink-400 absolute left-4 top-4.5" />
+                  <Search className="w-3.5 h-3.5 text-pink-400 absolute left-3 top-2" />
                 </div>
                 <nav className="flex-1 flex flex-col p-4 space-y-4">
-                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Paj Prinsipal</a>
-                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Kategori</a>
-                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Of</a>
-                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Kontak</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Accueil</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Catégories</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Offres</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Contact</a>
                 </nav>
               </div>
             )}
@@ -107,21 +107,21 @@ export function Header({ onCartClick }: HeaderProps) {
                         className="flex items-center gap-2 px-4 py-2 text-sm text-pink-700 hover:bg-pink-100"
                       >
                         <Package className="w-4 h-4" />
-                        Kòmand Mwen
+                        Mes Commandes
                       </a>
                       <a 
                         href="#" 
                         className="flex items-center gap-2 px-4 py-2 text-sm text-pink-700 hover:bg-pink-100"
                       >
                         <User className="w-4 h-4" />
-                        Pwofil
+                        Profil
                       </a>
                       <button 
                         onClick={handleLogout}
                         className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-pink-700 hover:bg-pink-100"
                       >
                         <LogOut className="w-4 h-4" />
-                        Dekonekte
+                        Déconnexion
                       </button>
                     </div>
                   )}

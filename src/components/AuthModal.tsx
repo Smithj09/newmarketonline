@@ -54,12 +54,12 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
             </div>
             
             <h2 className="text-2xl font-bold text-center text-pink-900 mb-2">
-              {mode === 'login' ? 'Ouvri sesyon DorMark' : 'Rejwenn DorMark Jodi a'}
+              {mode === 'login' ? 'Connexion à DorMark' : 'Rejoignez DorMark Aujourd\'hui'}
             </h2>
             <p className="text-pink-600 text-center mb-6">
               {mode === 'login' 
-                ? 'Antre kredansiyel ou pou kontinye' 
-                : 'Kòmanse avèk DorMark jodi a'}
+                ? 'Entrez vos identifiants pour continuer' 
+                : 'Commencez avec DorMark aujourd\'hui'}
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -85,8 +85,8 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
               
               <div>
                 <label className="block text-sm font-medium text-pink-800 mb-1">
-                  Imèl
-                </label>
+                    Email
+                  </label>
                 <div className="relative">
                   <input
                     type="email"
@@ -95,7 +95,7 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 pl-11 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition"
-                    placeholder="antre imel ou"
+                    placeholder="entrez votre email"
                   />
                   <Mail className="w-5 h-5 text-pink-500 absolute left-3 top-3.5" />
                 </div>
@@ -103,8 +103,8 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
               
               <div>
                 <label className="block text-sm font-medium text-pink-800 mb-1">
-                  Mo de pas
-                </label>
+                    Mot de passe
+                  </label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -114,7 +114,7 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
                     required
                     minLength={6}
                     className="w-full px-4 py-3 pl-11 pr-12 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition"
-                    placeholder="antre modpas ou"
+                    placeholder="entrez votre mot de passe"
                   />
                   <Lock className="w-5 h-5 text-pink-500 absolute left-3 top-3.5" />
                   <button
@@ -160,22 +160,22 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
                 disabled={loading}
                 className="w-full btn-primary py-3 mt-2"
               >
-                {loading ? 'Processing...' : mode === 'login' ? 'Ouvri Sesyon' : 'Kreye Kont'}
+                {loading ? 'Processing...' : mode === 'login' ? 'Se Connecter' : 'Créer un Compte'}
               </button>
             </form>
             
             <div className="mt-6 text-center">
               <p className="text-pink-600">
                 {mode === 'login' 
-                  ? "Pa gen kont?" 
-                  : "Gen yon kont deja?"}
+                  ? "Pas de compte?" 
+                   : "Vous avez déjà un compte?"}
                 {' '}
                 <button
                   type="button"
                   onClick={onSwitchMode}
                   className="text-pink-600 font-medium hover:underline"
                 >
-                  {mode === 'login' ? 'Kreye Kont' : 'Ouvri Sesyon'}
+                  {mode === 'login' ? 'Créer un Compte' : 'Se Connecter'}
                 </button>
               </p>
             </div>

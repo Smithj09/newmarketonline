@@ -32,7 +32,7 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between p-4 border-b-2 border-pink-200 sticky top-0 bg-white z-10">
-            <h2 className="text-xl font-bold text-pink-800">Detay Pwodui</h2>
+            <h2 className="text-xl font-bold text-pink-800">Détails du Produit</h2>
             <button
               onClick={onClose}
               className="p-1 hover:bg-pink-100 rounded-full transition-colors"
@@ -52,7 +52,7 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
                   />
                   {product.stock < 10 && product.stock > 0 && (
                     <span className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                      Sèlman {product.stock} rete
+                      Seulement {product.stock} restants
                     </span>
                   )}
                 </div>
@@ -86,7 +86,7 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
                     ))}
                   </div>
                   <span className="text-sm text-pink-700 font-medium">{rating}.0</span>
-                  <span className="text-xs text-pink-500">({reviewCount} revizyon)</span>
+                  <span className="text-xs text-pink-500">({reviewCount} avis)</span>
                     </div>
                     
                     <p className="text-pink-600 text-sm leading-relaxed mb-4">
@@ -96,8 +96,8 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
                     <div className="flex items-center gap-2 mb-4 text-pink-700">
                       <Package className="w-4 h-4" />
                       <span className="text-xs">
-                        {product.stock > 0 ? `${product.stock} ki disponib` : 'Epwise'}
-                      </span>
+                    {product.stock > 0 ? `${product.stock} en stock` : 'Épuisé'}
+                  </span>
                     </div>
 
                     <div className="border-t-2 border-pink-200 pt-4 mt-auto">
@@ -109,8 +109,8 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
                           ${(product.price * 1.2).toFixed(2)}
                         </span>
                         <span className="bg-pink-100 text-pink-800 text-xs font-medium px-1.5 py-0.5 rounded">
-                          Epase 20%
-                        </span>
+                        Économisez 20%
+                      </span>
                   </div>
 
                   <button
@@ -119,17 +119,17 @@ export function ProductDetail({ product, isOpen, onClose }: ProductDetailProps) 
                     className="w-full btn-primary py-3 text-base flex items-center justify-center gap-2 disabled:bg-gray-400 disabled:cursor-not-allowed"
                   >
                     <ShoppingCart className="w-4 h-4" />
-                    {product.stock === 0 ? 'Epwise' : 'Ajoute nan Panier'}
+                    {product.stock === 0 ? 'Épuisé' : 'Ajouter au panier'}
                   </button>
                   
                   <div className="mt-3 grid grid-cols-2 gap-3">
                     <button className="btn-secondary py-2 text-sm">
-                      Achte Kounye a
+                      Acheter Maintenant
                     </button>
                     <button className="flex items-center justify-center gap-1.5 border-2 border-pink-200 rounded-lg px-3 py-2 text-sm hover:bg-pink-50 transition-colors">
-                      <Heart className="w-4 h-4 text-pink-700" />
-                      Lis Priyoritè
-                    </button>
+                        <Heart className="w-4 h-4 text-pink-700" />
+                        Liste de souhaits
+                      </button>
                   </div>
                 </div>
               </div>

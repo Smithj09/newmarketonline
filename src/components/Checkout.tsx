@@ -81,7 +81,7 @@ export function Checkout({ isOpen, onClose }: CheckoutProps) {
               </div>
               <h2 className="text-3xl font-bold text-black mb-4">Order Confirmed!</h2>
               <p className="text-black text-lg mb-2">
-                Thank you for your purchase on DorMakSmellsgood. Your order has been placed successfully.
+                Thank you for your purchase on DorMark. Your order has been placed successfully.
               </p>
               <p className="text-pink-600">
                 Order ID: #{Math.floor(100000 + Math.random() * 900000)}
@@ -94,7 +94,7 @@ export function Checkout({ isOpen, onClose }: CheckoutProps) {
                   <div className="bg-gradient-to-r from-pink-600 to-pink-800 p-2 rounded-lg">
                     <CreditCard className="w-6 h-6 text-white" />
                   </div>
-sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsgood Checkout</h2>
+                  <h2 className="text-2xl font-bold text-black">DorMark Checkout</h2>
                 </div>
                 <button
                   onClick={onClose}
@@ -115,7 +115,7 @@ sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsg
                     <div className="bg-pink-100 p-6 rounded-full inline-block mb-6">
                       <Truck className="w-12 h-12 text-pink-400" />
                     </div>
-                    <h3 className="text-xl font-bold text-black mb-2">Your DorMakSmellsgood cart is empty</h3>
+                    <h3 className="text-xl font-bold text-black mb-2">Your DorMark cart is empty</h3>
                     <p className="text-pink-600">Add some products to your cart before checking out.</p>
                   </div>
                 ) : (
@@ -129,9 +129,11 @@ sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsg
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1 flex items-center gap-1">
-                              <User className="w-4 h-4" />
-                              Full Name
+                            <label className="block text-sm font-medium text-black mb-1">
+                              <div className="flex items-center gap-1">
+                                <User className="w-4 h-4" />
+                                Full Name
+                              </div>
                             </label>
                             <input
                               type="text"
@@ -144,9 +146,11 @@ sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsg
                           </div>
                           
                           <div>
-                            <label className="block text-sm font-medium text-black mb-1 flex items-center gap-1">
-                              <Mail className="w-4 h-4" />
-                              Email
+                            <label className="block text-sm font-medium text-black mb-1">
+                              <div className="flex items-center gap-1">
+                                <Mail className="w-4 h-4" />
+                                Email
+                              </div>
                             </label>
                             <input
                               type="email"
@@ -160,9 +164,11 @@ sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsg
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-black mb-1 flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            Address
+                          <label className="block text-sm font-medium text-black mb-1">
+                            <div className="flex items-center gap-1">
+                              <Lock className="w-4 h-4" />
+                              Address
+                            </div>
                           </label>
                             <input
                               type="text"
@@ -209,9 +215,11 @@ sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsg
                         </h3>
 
                         <div>
-                          <label className="block text-sm font-medium text-black mb-1 flex items-center gap-1">
-                            <CreditCard className="w-4 h-4" />
-                            Card Number
+                          <label className="block text-sm font-medium text-black mb-1">
+                            <div className="flex items-center gap-1">
+                              <CreditCard className="w-4 h-4" />
+                              Card Number
+                            </div>
                           </label>
                           <input
                             type="text"

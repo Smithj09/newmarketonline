@@ -5,10 +5,8 @@ import { Cart } from './components/Cart';
 import { Checkout } from './components/Checkout';
 import { ProductDetail } from './components/ProductDetail';
 import { Footer } from './components/Footer';
-import { SellerDashboard } from './components/SellerDashboard';
 import { products } from './data/products';
 import { Product } from './types';
-import { Star, Truck, Shield, RotateCcw } from 'lucide-react';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -28,13 +26,13 @@ function App() {
       <section className="bg-gradient-to-r from-pink-600 to-pink-800 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Byenvini sou DorMark</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Bienvenue sur DorMark</h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl sm:max-w-3xl mx-auto opacity-90">
-                Dekouvri pwodui enteresan yo sitye vann tankou mond lan
-              </p>
+              Produits de qualité, prix compétitifs
+            </p>
             <div className="flex justify-center">
                 <button className="bg-white text-pink-700 font-bold py-3 px-6 sm:px-8 rounded-lg hover:bg-pink-50 transition-colors shadow-lg">
-                  Achte Kounye a
+                  Acheter Maintenant
                 </button>
               </div>
           </div>
@@ -47,10 +45,10 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         <div className="mb-8 sm:mb-12 text-center">
             <h2 className="section-title text-2xl sm:text-3xl">
-              Pwodui
+              Produits
             </h2>
             <p className="section-subtitle text-base sm:text-lg">
-              Seleksyon fèt pa DorMark
+              Sélection faite par DorMark
             </p>
           </div>
 

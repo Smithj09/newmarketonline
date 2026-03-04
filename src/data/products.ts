@@ -9,6 +9,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 50,
+    rating: 4.8,
+    reviewCount: 120,
   },
   {
     id: '2',
@@ -18,6 +20,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fashion',
     stock: 30,
+    rating: 4.6,
+    reviewCount: 85,
   },
   {
     id: '3',
@@ -27,6 +31,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/393047/pexels-photo-393047.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 45,
+    rating: 4.7,
+    reviewCount: 200,
   },
   {
     id: '4',
@@ -36,6 +42,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/4968630/pexels-photo-4968630.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fashion',
     stock: 100,
+    rating: 4.5,
+    reviewCount: 150,
   },
   {
     id: '5',
@@ -45,6 +53,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1279406/pexels-photo-1279406.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 60,
+    rating: 4.4,
+    reviewCount: 95,
   },
   {
     id: '6',
@@ -54,6 +64,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/701877/pexels-photo-701877.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fashion',
     stock: 75,
+    rating: 4.6,
+    reviewCount: 180,
   },
   {
     id: '7',
@@ -63,6 +75,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fitness',
     stock: 80,
+    rating: 4.7,
+    reviewCount: 220,
   },
   {
     id: '8',
@@ -72,6 +86,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Home',
     stock: 40,
+    rating: 4.3,
+    reviewCount: 110,
   },
   {
     id: '9',
@@ -81,6 +97,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fitness',
     stock: 65,
+    rating: 4.5,
+    reviewCount: 175,
   },
   {
     id: '10',
@@ -90,6 +108,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Home',
     stock: 55,
+    rating: 4.4,
+    reviewCount: 90,
   },
   {
     id: '11',
@@ -99,6 +119,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/2115256/pexels-photo-2115256.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 90,
+    rating: 4.2,
+    reviewCount: 140,
   },
   {
     id: '12',
@@ -108,6 +130,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Fashion',
     stock: 120,
+    rating: 4.6,
+    reviewCount: 210,
   },
   {
     id: '13',
@@ -117,6 +141,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/109371/pexels-photo-109371.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 35,
+    rating: 4.7,
+    reviewCount: 165,
   },
   {
     id: '14',
@@ -126,6 +152,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/577769/pexels-photo-577769.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Electronics',
     stock: 25,
+    rating: 4.3,
+    reviewCount: 125,
   },
   {
     id: '15',
@@ -135,6 +163,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Home',
     stock: 20,
+    rating: 4.8,
+    reviewCount: 95,
   },
   {
     id: '16',
@@ -144,6 +174,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1369518/pexels-photo-1369518.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Perfum',
     stock: 40,
+    rating: 4.9,
+    reviewCount: 280,
   },
   {
     id: '17',
@@ -153,6 +185,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1105787/pexels-photo-1105787.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Perfum',
     stock: 35,
+    rating: 4.5,
+    reviewCount: 160,
   },
   {
     id: '18',
@@ -162,6 +196,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1170988/pexels-photo-1170988.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Perfum',
     stock: 25,
+    rating: 4.7,
+    reviewCount: 195,
   },
   {
     id: '19',
@@ -171,6 +207,8 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1031681/pexels-photo-1031681.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Perfum',
     stock: 60,
+    rating: 4.4,
+    reviewCount: 135,
   },
   {
     id: '20',
@@ -180,5 +218,7 @@ export const products: Product[] = [
     image_url: 'https://images.pexels.com/photos/1369518/pexels-photo-1369518.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'Perfum',
     stock: 30,
+    rating: 4.6,
+    reviewCount: 145,
   },
 ];
