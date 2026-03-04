@@ -64,9 +64,9 @@ export function Header({ onCartClick }: HeaderProps) {
                 <input
                     type="text"
                     placeholder="Rechercher des produits..."
-                    className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none"
+                    className="w-full pl-9 pr-3 py-1 text-sm bg-white border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-black"
                   />
-                <Search className="w-4 h-4 text-pink-400 absolute left-2.5 top-2" />
+                <Search className="w-4 h-4 text-pink-400 absolute left-2.5 top-1" />
               </div>
             </div>
             
@@ -86,9 +86,9 @@ export function Header({ onCartClick }: HeaderProps) {
                     <input
                        type="text"
                        placeholder="Rechercher des produits..."
-                       className="w-full pl-10 pr-4 py-3 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none"
+                       className="w-full pl-9 pr-3 py-1 text-sm bg-white border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-black"
                      />
-                    <Search className="w-5 h-5 text-pink-400 absolute left-3 top-3.5" />
+                    <Search className="w-4 h-4 text-pink-400 absolute left-2.5 top-1" />
                   </div>
                 </div>
                 <nav className="flex-1 flex flex-col p-4 space-y-2">
