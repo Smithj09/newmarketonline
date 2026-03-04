@@ -18,6 +18,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [isSellerDashboardOpen, setIsSellerDashboardOpen] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
   const [isEditProductOpen, setIsEditProductOpen] = useState(false);
   const [productToEdit, setProductToEdit] = useState<Product | null>(null);
@@ -25,6 +26,21 @@ function App() {
   const handleCheckout = () => {
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
+  };
+
+  const handleAdminLogin = (username: string, password: string): boolean => {
+    // Simple admin credentials check (in production, use real authentication)
+    if (username === 'admin' && password === 'admin123') {
+      setIsAdminLoggedIn(true);
+      setIsSellerDashboardOpen(true);
+      return true;
+    }
+    return false;
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminLoggedIn(false);
+    setIsSellerDashboardOpen(false);
   };
 
   const handleAddProduct = (productData: Omit<Product, 'id' | 'rating' | 'reviewCount'>) => {
@@ -51,7 +67,10 @@ function App() {
     <div className="min-h-screen bg-white flex flex-col">
       <Header 
         onCartClick={() => setIsCartOpen(true)} 
-        onDashboardClick={() => setIsSellerDashboardOpen(!isSellerDashboardOpen)} 
+        onDashboardClick={() => setIsSellerDashboardOpen(!isSellerDashboardOpen)}
+        isAdminLoggedIn={isAdminLoggedIn}
+        onAdminLogin={handleAdminLogin}
+        onAdminLogout={handleAdminLogout}
       />
 
       {/* Hero Section */}
@@ -124,6 +143,8 @@ function App() {
       />
 
       <SellerDashboard
+        isOpen={isSellerDashboardOpen && isAdminLoggedIn}
+        onClose={() => setIsSellerDashboardOpen(false)}
         products={products}
         onAddProduct={() => setIsAddProductOpen(true)}
         onEditProduct={(product) => {

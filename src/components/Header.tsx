@@ -2,19 +2,24 @@ import { useState } from 'react';
 import { ShoppingCart, Store, Menu, X, User, Search, LogOut, Package } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { AuthModal } from './AuthModal';
+import { AdminLoginModal } from './AdminLoginModal';
 
 interface HeaderProps {
   onCartClick: () => void;
   onDashboardClick?: () => void;
+  isAdminLoggedIn?: boolean;
+  onAdminLogin?: (username: string, password: string) => boolean;
+  onAdminLogout?: () => void;
 }
 
-export function Header({ onCartClick, onDashboardClick }: HeaderProps) {
+export function Header({ onCartClick, onDashboardClick, isAdminLoggedIn = false, onAdminLogin, onAdminLogout }: HeaderProps) {
   const { cartCount } = useCart();
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const [isAuthenticated, setIsAuthenticated] = useState(false); // This would come from a real auth context
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [adminLoginModalOpen, setAdminLoginModalOpen] = useState(false);
 
   const toggleAuthModal = () => {
     setAuthModalOpen(!authModalOpen);
@@ -31,6 +36,28 @@ export function Header({ onCartClick, onDashboardClick }: HeaderProps) {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleDashboardClick = () => {
+    if (isAdminLoggedIn) {
+      onDashboardClick?.();
+    } else {
+      setAdminLoginModalOpen(true);
+    }
+  };
+
+  const handleAdminLogin = (username: string, password: string): boolean => {
+    if (onAdminLogin?.(username, password)) {
+      setAdminLoginModalOpen(false);
+      onDashboardClick?.();
+      return true;
+    }
+    return false;
+  };
+
+  const handleAdminLogout = () => {
+    onAdminLogout?.();
+    setDropdownOpen(false);
   };
 
   return (
@@ -54,15 +81,24 @@ export function Header({ onCartClick, onDashboardClick }: HeaderProps) {
             </div>
 
             <div className="hidden md:flex items-center gap-6">
-              <nav className="flex gap-6">
+              <nav className="flex gap-6 items-center">
                 <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Accueil</a>
                 <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Catégories</a>
                 <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Offres</a>
                 <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Contact</a>
                 <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors" onClick={(e) => {
                   e.preventDefault();
-                  onDashboardClick?.();
+                  handleDashboardClick();
                 }}>Dashboard</a>
+                {isAdminLoggedIn && (
+                  <button
+                    onClick={handleAdminLogout}
+                    className="flex items-center gap-2 px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm font-medium"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Logout
+                  </button>
+                )}
               </nav>
               
               <div className="relative flex-grow max-w-md">
@@ -113,6 +149,26 @@ export function Header({ onCartClick, onDashboardClick }: HeaderProps) {
                     Contact
                     <span className="text-pink-500">›</span>
                   </a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-3 px-4 rounded-lg hover:bg-pink-50 transition-colors flex items-center justify-between" onClick={(e) => {
+                    e.preventDefault();
+                    handleDashboardClick();
+                    toggleMobileMenu();
+                  }}>
+                    Dashboard
+                    <span className="text-pink-500">›</span>
+                  </a>
+                  {isAdminLoggedIn && (
+                    <button
+                      onClick={() => {
+                        handleAdminLogout();
+                        toggleMobileMenu();
+                      }}
+                      className="flex items-center gap-2 w-full px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-medium"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </button>
+                  )}
                 </nav>
                 
                 {/* Mobile User Actions */}
@@ -256,6 +312,12 @@ export function Header({ onCartClick, onDashboardClick }: HeaderProps) {
         onClose={toggleAuthModal} 
         mode={authMode} 
         onSwitchMode={switchAuthMode} 
+      />
+
+      <AdminLoginModal 
+        isOpen={adminLoginModalOpen}
+        onClose={() => setAdminLoginModalOpen(false)}
+        onLogin={handleAdminLogin}
       />
     </>
   );
