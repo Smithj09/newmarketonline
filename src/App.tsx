@@ -28,15 +28,18 @@ function App() {
       <section className="bg-gradient-to-r from-pink-600 to-pink-800 text-white py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Welcome to DorMark</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">Byenvini sou DorMark</h1>
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-2xl sm:max-w-3xl mx-auto opacity-90">
-              Discover amazing products from trusted sellers around the world
-            </p>
+                Dekouvri pwodui enteresan yo sitye vann tankou mond lan
+              </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-              <button className="bg-white text-pink-700 font-bold py-3 px-6 sm:px-8 rounded-lg hover:bg-pink-50 transition-colors shadow-lg">
-                Shop Now
-              </button>
-            </div>
+                <button className="bg-white text-pink-700 font-bold py-3 px-6 sm:px-8 rounded-lg hover:bg-pink-50 transition-colors shadow-lg">
+                  Achte Kounye a
+                </button>
+                <button className="bg-gradient-to-r from-pink-500 to-pink-700 text-white font-bold py-3 px-6 sm:px-8 rounded-lg hover:from-pink-600 hover:to-pink-800 transition-all shadow-lg">
+                  Alòske Plis
+                </button>
+              </div>
           </div>
         </div>
       </section>
@@ -47,11 +50,11 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         <div className="mb-8 sm:mb-12 text-center">
           <h2 className="section-title text-2xl sm:text-3xl">
-            Featured Products
-          </h2>
-          <p className="section-subtitle text-base sm:text-lg">
-            Handpicked selection from DorMark
-          </p>
+              Pwodui Sèlèksyone
+            </h2>
+            <p className="section-subtitle text-base sm:text-lg">
+              Seleksyon fèt pa DorMark
+            </p>
         </div>
 
         <ProductGrid

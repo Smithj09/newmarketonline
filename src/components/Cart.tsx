@@ -25,7 +25,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
               <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <h2 className="text-lg sm:text-2xl font-bold text-pink-800 truncate">
-              DorMark Cart ({cartCount})
+              Panier DorMark ({cartCount})
             </h2>
           </div>
           <button
@@ -53,7 +53,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
                 onClick={onClose}
                 className="btn-primary px-6 py-3"
               >
-                Continue Shopping on DorMark
+                Kontinye Achte sou DorMark
               </button>
             </div>
           ) : (
@@ -93,11 +93,11 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
                         <Plus className="w-3 sm:w-4 h-3 sm:h-4 text-pink-700" />
                       </button>
                       <button
-                        onClick={() => removeFromCart(item.product.id)}
-                        className="ml-auto p-1 sm:p-1.5 hover:bg-red-100 text-red-600 rounded-full transition-colors"
-                      >
-                        <Trash2 className="w-3 sm:w-4 h-3 sm:h-4" />
-                      </button>
+                    onClick={() => removeFromCart(item.product.id)}
+                className="ml-auto p-1 sm:p-1.5 hover:bg-red-100 text-red-600 rounded-full transition-colors"
+              >
+                <Trash2 className="w-3 sm:w-4 h-3 sm:h-4" />
+              </button>
                     </div>
                   </div>
                 </div>
@@ -134,14 +134,14 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
               onClick={onCheckout}
               className="w-full btn-primary py-3 sm:py-4 flex items-center justify-center gap-2"
             >
-              Proceed to Checkout
+              Pase pou Peye
               <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
             <button
                 onClick={onClose}
                 className="w-full mt-3 text-pink-600 font-medium py-2 sm:py-3 hover:bg-pink-50 rounded-lg transition-colors text-sm sm:text-base"
               >
-                Continue Shopping on DorMark
+                Kontinye Achte
               </button>
           </div>
         )}

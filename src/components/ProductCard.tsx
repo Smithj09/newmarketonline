@@ -33,12 +33,12 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
           />
           {product.stock < 10 && product.stock > 0 && (
             <span className="absolute top-2 right-2 bg-pink-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-              Only {product.stock} left
+              Sèlman {product.stock} rete
             </span>
           )}
           {product.stock === 0 && (
             <span className="absolute top-2 right-2 bg-black text-white text-xs font-semibold px-2 py-1 rounded-full">
-              Out of Stock
+              Epwise
             </span>
           )}
         </div>
@@ -75,7 +75,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
               className="flex items-center gap-1 btn-primary px-2 py-1 text-xs min-w-[70px] disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               <ShoppingCart className="w-3 h-3" />
-              Add
+              Ajoute nan Panier
             </button>
           </div>
         </div>

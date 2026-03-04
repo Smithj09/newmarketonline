@@ -34,24 +34,24 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-pink-300 mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-pink-300 mb-4">Lyen Importan</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Home</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Products</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Contact</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Paj Prinsipal</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Pwodui</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Apwopos nou</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Kontak</a></li>
               <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">FAQ</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-pink-300 mb-4">Customer Service</h4>
+            <h4 className="text-lg font-semibold text-pink-300 mb-4">Sèvis Kliyan</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Shipping Policy</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Return Policy</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Terms & Conditions</a></li>
-              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Track Order</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Politik Livrezon</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Politik Rembouseman</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Politik Konfidyalite</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Tèm & Kondisyon</a></li>
+              <li><a href="#" className="text-pink-200 hover:text-pink-300 transition-colors">Swiv Kòmand</a></li>
             </ul>
           </div>
           
