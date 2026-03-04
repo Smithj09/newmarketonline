@@ -40,24 +40,24 @@ export function Header({ onCartClick }: HeaderProps) {
           onClick={toggleMobileMenu}
         />
       )}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-pink-200 shadow-sm">
+      <header className="sticky top-0 z-50 bg-[#131921] text-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-2 rounded-lg">
                 <Store className="w-6 h-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-white">
                 DorMark
               </h1>
             </div>
 
             <div className="hidden md:flex items-center gap-6">
               <nav className="flex gap-6">
-                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Home</a>
-                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Categories</a>
-                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Deals</a>
-                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Contact</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Home</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Categories</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Deals</a>
+                <a href="#" className="text-white hover:text-pink-300 font-medium transition-colors">Contact</a>
               </nav>
               
               <div className="relative flex-grow max-w-md">
@@ -82,10 +82,10 @@ export function Header({ onCartClick }: HeaderProps) {
                   <Search className="w-4 h-4 text-pink-400 absolute left-4 top-4.5" />
                 </div>
                 <nav className="flex-1 flex flex-col p-4 space-y-4">
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Home</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Categories</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Deals</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Contact</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Home</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Categories</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Deals</a>
+                  <a href="#" className="text-black hover:text-pink-700 font-medium py-2 border-b border-gray-200" onClick={toggleMobileMenu}>Contact</a>
                 </nav>
               </div>
             )}
