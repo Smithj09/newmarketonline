@@ -81,7 +81,7 @@ export function Checkout({ isOpen, onClose }: CheckoutProps) {
               </div>
               <h2 className="text-3xl font-bold text-black mb-4">Order Confirmed!</h2>
               <p className="text-black text-lg mb-2">
-                Thank you for your purchase. Your order has been placed successfully.
+                Thank you for your purchase on DorMakSmellsgood. Your order has been placed successfully.
               </p>
               <p className="text-pink-600">
                 Order ID: #{Math.floor(100000 + Math.random() * 900000)}
@@ -94,7 +94,7 @@ export function Checkout({ isOpen, onClose }: CheckoutProps) {
                   <div className="bg-gradient-to-r from-pink-600 to-pink-800 p-2 rounded-lg">
                     <CreditCard className="w-6 h-6 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-black">Checkout</h2>
+sma                  <h2 className="text-2xl font-bold text-black">DorMakSmellsgood Checkout</h2>
                 </div>
                 <button
                   onClick={onClose}
@@ -115,7 +115,7 @@ export function Checkout({ isOpen, onClose }: CheckoutProps) {
                     <div className="bg-pink-100 p-6 rounded-full inline-block mb-6">
                       <Truck className="w-12 h-12 text-pink-400" />
                     </div>
-                    <h3 className="text-xl font-bold text-black mb-2">Your cart is empty</h3>
+                    <h3 className="text-xl font-bold text-black mb-2">Your DorMakSmellsgood cart is empty</h3>
                     <p className="text-pink-600">Add some products to your cart before checking out.</p>
                   </div>
                 ) : (

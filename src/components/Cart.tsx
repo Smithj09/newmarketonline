@@ -25,7 +25,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
               <ShoppingBag className="w-6 h-6 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-black">
-              Shopping Cart ({cartCount})
+              DorMakSmellsgood Cart ({cartCount})
             </h2>
           </div>
           <button
@@ -53,7 +53,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
                 onClick={onClose}
                 className="btn-primary px-6 py-3"
               >
-                Continue Shopping
+                Continue Shopping on DorMakSmellsgood
               </button>
             </div>
           ) : (

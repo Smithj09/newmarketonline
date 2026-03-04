@@ -14,59 +14,27 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [showSellerDashboard, setShowSellerDashboard] = useState(false);
 
   const handleCheckout = () => {
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
   };
 
-  const handleAddProduct = () => {
-    console.log('Add new product clicked');
-  };
-
-  const handleEditProduct = (product: Product) => {
-    console.log('Edit product clicked', product);
-  };
-
-  const handleDeleteProduct = (productId: string) => {
-    console.log('Delete product clicked', productId);
-  };
-
-  if (showSellerDashboard) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <SellerDashboard 
-          products={products}
-          onAddProduct={handleAddProduct}
-          onEditProduct={handleEditProduct}
-          onDeleteProduct={handleDeleteProduct}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header onCartClick={() => setIsCartOpen(true)} />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-500 to-pink-700 text-white py-16">
+      <section className="bg-gradient-to-r from-pink-600 to-pink-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to MarketPlace</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to DorMakSmellsgood</h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
               Discover amazing products from trusted sellers around the world
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button className="bg-white text-pink-600 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition-colors shadow-lg">
+              <button className="bg-white text-pink-700 font-bold py-3 px-8 rounded-lg hover:bg-pink-50 transition-colors shadow-lg">
                 Shop Now
-              </button>
-              <button 
-                onClick={() => setShowSellerDashboard(true)}
-                className="bg-black text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition-colors"
-              >
-                Sell on MarketPlace
               </button>
             </div>
           </div>
@@ -82,7 +50,7 @@ function App() {
             Featured Products
           </h2>
           <p className="section-subtitle">
-            Handpicked selection of quality products just for you
+            Handpicked selection from DorMakSmellsgood
           </p>
         </div>
 

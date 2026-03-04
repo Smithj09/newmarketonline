@@ -22,10 +22,10 @@ export function SellerDashboard({ products, onAddProduct, onEditProduct, onDelet
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-black">Seller Dashboard</h1>
-        <p className="text-pink-600">Manage your store and track your sales</p>
-      </div>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-black">DorMakSmellsgood Seller Dashboard</h1>
+          <p className="text-pink-600">Manage your store and track your sales</p>
+        </div>
 
       {/* Navigation Tabs */}
       <div className="border-b border-black mb-8">

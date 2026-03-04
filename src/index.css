@@ -15,22 +15,22 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-pink-500 to-pink-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-pink-600 hover:to-pink-800 transition-all duration-300 shadow-md hover:shadow-lg;
+    @apply bg-gradient-to-r from-pink-400 to-pink-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-pink-500 hover:to-pink-700 transition-all duration-300 shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-black text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-800 transition-colors;
+    @apply bg-white text-black font-semibold py-2 px-4 rounded-lg border-2 border-pink-500 hover:bg-pink-50 transition-colors;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-black overflow-hidden;
+    @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 border-2 border-pink-200 overflow-hidden;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-black mb-2;
+    @apply text-3xl md:text-4xl font-bold text-pink-700 mb-2;
   }
   
   .section-subtitle {
-    @apply text-pink-600 text-lg mb-8;
+    @apply text-black text-lg mb-8;
   }
 }

@@ -59,7 +59,7 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
             <p className="text-pink-600 text-center mb-6">
               {mode === 'login' 
                 ? 'Enter your credentials to continue' 
-                : 'Get started with our marketplace today'}
+                : 'Get started with DorMakSmellsgood today'}
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
