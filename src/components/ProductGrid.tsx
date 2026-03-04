@@ -41,7 +41,7 @@ export function ProductGrid({ products, onViewDetails }: ProductGridProps) {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+              className={`px-3 py-2 rounded-lg font-medium transition-all text-sm ${
                 selectedCategory === category
                   ? 'bg-gradient-to-r from-pink-600 to-pink-800 text-white shadow-md'
                   : 'bg-white text-black hover:bg-pink-100 border border-black'
@@ -56,7 +56,7 @@ export function ProductGrid({ products, onViewDetails }: ProductGridProps) {
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className="appearance-none bg-white border-2 border-pink-200 rounded-lg pl-4 pr-10 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none w-full md:w-48"
+            className="appearance-none bg-white border-2 border-pink-200 rounded-lg pl-4 pr-10 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none w-full"
           >
             <option value="featured">Featured</option>
             <option value="price-low">Price: Low to High</option>
@@ -67,7 +67,7 @@ export function ProductGrid({ products, onViewDetails }: ProductGridProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
         {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}

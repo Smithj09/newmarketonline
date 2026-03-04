@@ -4,18 +4,18 @@ export function Footer() {
   return (
     <footer className="bg-white text-pink-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-2 rounded-lg">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
-                DorMakSmellsgood
+                DorMark
               </h3>
             </div>
             <p className="text-pink-600 mb-4">
-              Your one-stop destination for all your shopping needs. Quality products at competitive prices.
+barspo              Your one-stop destination for all your shopping needs. Quality products at competitive prices.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-pink-600 hover:text-pink-800 transition-colors">
@@ -64,7 +64,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-pink-600">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>support@dormaksmellsgood.com</span>
+                <span>support@dormark.com</span>
               </li>
               <li className="flex items-start gap-2 text-pink-600">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />

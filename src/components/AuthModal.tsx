@@ -54,12 +54,12 @@ export function AuthModal({ isOpen, onClose, mode, onSwitchMode }: AuthModalProp
             </div>
             
             <h2 className="text-2xl font-bold text-center text-pink-900 mb-2">
-              {mode === 'login' ? 'Sign in to your account' : 'Create an account'}
+              {mode === 'login' ? 'Sign in to DorMark' : 'Join DorMark Today'}
             </h2>
             <p className="text-pink-600 text-center mb-6">
               {mode === 'login' 
                 ? 'Enter your credentials to continue' 
-                : 'Get started with DorMakSmellsgood today'}
+                : 'Get started with DorMark today'}
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-4">

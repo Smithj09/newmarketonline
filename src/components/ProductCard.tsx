@@ -43,9 +43,9 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
           )}
         </div>
 
-        <div className="p-4">
-          <div className="flex justify-between items-start mb-1">
-            <div>
+        <div className="p-3 md:p-4">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-1">
+            <div className="flex-1 min-w-0">
               <span className="text-xs font-medium text-pink-700 uppercase tracking-wide">
                 {product.category}
               </span>
@@ -53,7 +53,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
                 {product.name}
               </h3>
             </div>
-            <div className="flex items-center bg-pink-100 px-1.5 py-0.5 rounded">
+            <div className="flex items-center bg-pink-100 px-1.5 py-0.5 rounded self-start">
               <Star className="w-3 h-3 text-yellow-400 fill-current" />
               <span className="text-xs font-medium text-pink-700 ml-1">{rating}.0</span>
             </div>
@@ -72,7 +72,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
             <button
               onClick={handleAddToCart}
               disabled={product.stock === 0}
-              className="flex items-center gap-1 btn-primary px-2 py-1 text-xs disabled:bg-gray-400 disabled:cursor-not-allowed"
+              className="flex items-center gap-1 btn-primary px-2 py-1 text-xs min-w-[70px] disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               <ShoppingCart className="w-3 h-3" />
               Add

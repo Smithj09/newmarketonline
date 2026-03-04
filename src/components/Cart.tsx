@@ -19,20 +19,20 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
         onClick={onClose}
       />
       <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col">
-        <div className="flex items-center justify-between p-6 border-b-2 border-pink-200">
-          <div className="flex items-center gap-2">
-            <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-2 rounded-lg">
-              <ShoppingBag className="w-6 h-6 text-white" />
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b-2 border-pink-200">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <div className="bg-gradient-to-r from-pink-500 to-pink-700 p-2 rounded-lg flex-shrink-0">
+              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <h2 className="text-2xl font-bold text-pink-800">
-              DorMakSmellsgood Cart ({cartCount})
+            <h2 className="text-lg sm:text-2xl font-bold text-pink-800 truncate">
+              DorMark Cart ({cartCount})
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-pink-100 rounded-full transition-colors"
+            className="p-2 hover:bg-pink-100 rounded-full transition-colors flex-shrink-0 ml-2"
           >
-            <X className="w-6 h-6 text-pink-700" />
+            <X className="w-5 h-5 sm:w-6 sm:h-6 text-pink-700" />
           </button>
         </div>
 
@@ -53,7 +53,7 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
                 onClick={onClose}
                 className="btn-primary px-6 py-3"
               >
-                Continue Shopping on DorMakSmellsgood
+                Continue Shopping on DorMark
               </button>
             </div>
           ) : (
@@ -61,42 +61,42 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex gap-4 bg-white p-4 rounded-xl border-2 border-pink-200 shadow-sm"
+                  className="flex flex-col sm:flex-row gap-3 sm:gap-4 bg-white p-3 sm:p-4 rounded-xl border-2 border-pink-200 shadow-sm"
                 >
                   <img
                     src={item.product.image_url}
                     alt={item.product.name}
-                    className="w-20 h-20 object-cover rounded-lg flex-shrink-0"
+                    className="w-full sm:w-20 h-20 object-cover rounded-lg flex-shrink-0 self-center"
                   />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-pink-900 truncate">
+                  <div className="flex-1 min-w-0 flex flex-col">
+                    <h3 className="font-semibold text-pink-900 truncate text-sm">
                       {item.product.name}
                     </h3>
-                    <p className="text-sm text-pink-600 mt-1">
+                    <p className="text-xs sm:text-sm text-pink-600 mt-1">
                       ${item.product.price.toFixed(2)}
                     </p>
-                    <div className="flex items-center gap-3 mt-3">
+                    <div className="flex items-center gap-2 sm:gap-3 mt-2 sm:mt-3">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="p-1.5 hover:bg-pink-100 rounded-full transition-colors border-2 border-pink-200"
+                        className="p-1 sm:p-1.5 hover:bg-pink-100 rounded-full transition-colors border-2 border-pink-200"
                       >
-                        <Minus className="w-4 h-4 text-pink-700" />
+                        <Minus className="w-3 sm:w-4 h-3 sm:h-4 text-pink-700" />
                       </button>
-                      <span className="w-10 text-center font-medium bg-pink-100 py-1 rounded text-pink-800">
+                      <span className="w-8 sm:w-10 text-center font-medium bg-pink-100 py-1 rounded text-xs sm:text-sm text-pink-800">
                         {item.quantity}
                       </span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="p-1.5 hover:bg-pink-100 rounded-full transition-colors border-2 border-pink-200"
+                        className="p-1 sm:p-1.5 hover:bg-pink-100 rounded-full transition-colors border-2 border-pink-200"
                         disabled={item.quantity >= item.product.stock}
                       >
-                        <Plus className="w-4 h-4 text-pink-700" />
+                        <Plus className="w-3 sm:w-4 h-3 sm:h-4 text-pink-700" />
                       </button>
                       <button
                         onClick={() => removeFromCart(item.product.id)}
-                        className="ml-auto p-1.5 hover:bg-red-100 text-red-600 rounded-full transition-colors"
+                        className="ml-auto p-1 sm:p-1.5 hover:bg-red-100 text-red-600 rounded-full transition-colors"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-3 sm:w-4 h-3 sm:h-4" />
                       </button>
                     </div>
                   </div>
@@ -107,24 +107,24 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
         </div>
 
         {!isLoading && cartItems.length > 0 && (
-          <div className="border-t-2 border-pink-200 p-6 bg-white">
-            <div className="space-y-4 mb-6">
+          <div className="border-t-2 border-pink-200 p-4 sm:p-6 bg-white">
+            <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
               <div className="flex items-center justify-between">
-                <span className="text-pink-600">Subtotal</span>
-                <span className="font-medium">${cartTotal.toFixed(2)}</span>
+                <span className="text-pink-600 text-sm sm:text-base">Subtotal</span>
+                <span className="font-medium text-sm sm:text-base">${cartTotal.toFixed(2)}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-pink-600">Shipping</span>
-                <span className="font-medium">$5.99</span>
+                <span className="text-pink-600 text-sm sm:text-base">Shipping</span>
+                <span className="font-medium text-sm sm:text-base">$5.99</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-pink-600">Tax</span>
-                <span className="font-medium">${(cartTotal * 0.08).toFixed(2)}</span>
+                <span className="text-pink-600 text-sm sm:text-base">Tax</span>
+                <span className="font-medium text-sm sm:text-base">${(cartTotal * 0.08).toFixed(2)}</span>
               </div>
-              <div className="border-t-2 border-pink-200 pt-3 mt-2">
+              <div className="border-t-2 border-pink-200 pt-2 sm:pt-3 mt-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg font-semibold text-pink-800">Total</span>
-                  <span className="text-2xl font-bold text-black">
+                  <span className="text-base sm:text-lg font-semibold text-pink-800">Total</span>
+                  <span className="text-xl sm:text-2xl font-bold text-black">
                     ${(cartTotal + 5.99 + (cartTotal * 0.08)).toFixed(2)}
                   </span>
                 </div>
@@ -132,17 +132,17 @@ export function Cart({ isOpen, onClose, onCheckout }: CartProps) {
             </div>
             <button
               onClick={onCheckout}
-              className="w-full btn-primary py-4 flex items-center justify-center gap-2"
+              className="w-full btn-primary py-3 sm:py-4 flex items-center justify-center gap-2"
             >
               Proceed to Checkout
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
             <button
-              onClick={onClose}
-              className="w-full mt-3 text-pink-600 font-medium py-3 hover:bg-pink-50 rounded-lg transition-colors"
-            >
-              Continue Shopping
-            </button>
+                onClick={onClose}
+                className="w-full mt-3 text-pink-600 font-medium py-2 sm:py-3 hover:bg-pink-50 rounded-lg transition-colors text-sm sm:text-base"
+              >
+                Continue Shopping on DorMark
+              </button>
           </div>
         )}
       </div>

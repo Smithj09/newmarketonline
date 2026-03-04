@@ -13,6 +13,7 @@ export function Header({ onCartClick }: HeaderProps) {
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const [isAuthenticated, setIsAuthenticated] = useState(false); // This would come from a real auth context
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleAuthModal = () => {
     setAuthModalOpen(!authModalOpen);
@@ -27,8 +28,18 @@ export function Header({ onCartClick }: HeaderProps) {
     setDropdownOpen(false);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <>
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          onClick={toggleMobileMenu}
+        />
+      )}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b-2 border-pink-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -37,37 +48,47 @@ export function Header({ onCartClick }: HeaderProps) {
                 <Store className="w-6 h-6 text-white" />
               </div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-pink-700 bg-clip-text text-transparent">
-                DorMakSmellsgood
+                DorMark
               </h1>
             </div>
 
             <div className="hidden md:flex items-center gap-6">
-                <nav className="flex gap-6">
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Home</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Categories</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Deals</a>
-                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Contact</a>
-                </nav>
-                
-                <div className="relative flex-grow max-w-md">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none"
-                  />
-                  <Search className="w-5 h-5 text-pink-400 absolute left-3 top-2.5" />
-                </div>
-              </div>
+              <nav className="flex gap-6">
+                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Home</a>
+                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Categories</a>
+                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Deals</a>
+                <a href="#" className="text-pink-700 hover:text-pink-900 font-medium transition-colors">Contact</a>
+              </nav>
               
-              {/* Mobile Search - Hidden on desktop */}
-              <div className="md:hidden relative flex-grow mx-4">
+              <div className="relative flex-grow max-w-md">
                 <input
                   type="text"
                   placeholder="Search products..."
-                  className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm"
+                  className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none"
                 />
-                <Search className="w-4 h-4 text-pink-400 absolute left-3 top-2.5" />
+                <Search className="w-5 h-5 text-pink-400 absolute left-3 top-2.5" />
               </div>
+            </div>
+            
+            {/* Mobile Menu - Hidden on desktop */}
+            {mobileMenuOpen && (
+              <div className="md:hidden fixed inset-0 bg-white z-40 flex flex-col pt-16">
+                <div className="relative px-4 py-3 border-b border-pink-200">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    className="w-full pl-10 pr-4 py-2 border-2 border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm"
+                  />
+                  <Search className="w-4 h-4 text-pink-400 absolute left-4 top-4.5" />
+                </div>
+                <nav className="flex-1 flex flex-col p-4 space-y-4">
+                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Home</a>
+                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Categories</a>
+                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Deals</a>
+                  <a href="#" className="text-pink-700 hover:text-pink-900 font-medium py-2 border-b border-pink-100" onClick={toggleMobileMenu}>Contact</a>
+                </nav>
+              </div>
+            )}
 
             <div className="flex items-center gap-4">
               {isAuthenticated ? (
@@ -126,7 +147,10 @@ export function Header({ onCartClick }: HeaderProps) {
                 )}
               </button>
               
-              <button className="md:hidden p-2 hover:bg-pink-100 rounded-lg transition-colors">
+              <button 
+                onClick={toggleMobileMenu}
+                className="md:hidden p-2 hover:bg-pink-100 rounded-lg transition-colors"
+              >
                 <Menu className="w-6 h-6 text-pink-700" />
               </button>
             </div>
