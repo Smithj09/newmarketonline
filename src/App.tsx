@@ -11,6 +11,7 @@ import { AddProductForm } from './components/AddProductForm';
 import { EditProductForm } from './components/EditProductForm';
 import { products as initialProducts } from './data/products';
 import { Product } from './types';
+import { supabase } from './lib/supabase';
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -28,14 +29,29 @@ function App() {
     setIsCheckoutOpen(true);
   };
 
-  const handleAdminLogin = (username: string, password: string): boolean => {
-    // Simple admin credentials check (in production, use real authentication)
-    if (username === 'admin' && password === 'admin123') {
-      setIsAdminLoggedIn(true);
-      setIsSellerDashboardOpen(true);
-      return true;
+  const handleAdminLogin = async (email: string, password: string): Promise<boolean> => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error || !data.user) return false;
+
+      // check profile for is_admin flag
+      const { data: profile, error: pErr } = await supabase.from('profiles').select('is_admin').eq('id', data.user.id).single();
+      if (pErr || !profile) {
+        // not an admin
+        await supabase.auth.signOut();
+        return false;
+      }
+
+      if (profile.is_admin) {
+        setIsAdminLoggedIn(true);
+        setIsSellerDashboardOpen(true);
+        return true;
+      }
+      await supabase.auth.signOut();
+      return false;
+    } catch (err) {
+      return false;
     }
-    return false;
   };
 
   const handleAdminLogout = () => {
@@ -43,25 +59,47 @@ function App() {
     setIsSellerDashboardOpen(false);
   };
 
-  const handleAddProduct = (productData: Omit<Product, 'id' | 'rating' | 'reviewCount'>) => {
-    const newProduct: Product = {
-      ...productData,
-      id: Date.now().toString(),
-      rating: 0,
-      reviewCount: 0
-    };
-    setProducts(prev => [...prev, newProduct]);
+  const handleAddProduct = async (productData: Omit<Product, 'id' | 'rating' | 'reviewCount'>) => {
+    try {
+      const newProduct = await (await import('./lib/db')).addProduct(productData);
+      setProducts(prev => [...prev, newProduct]);
+    } catch (err) {
+      console.error('Add product failed', err);
+      alert('Failed to add product');
+    }
   };
 
-  const handleEditProduct = (updatedProduct: Product) => {
-    setProducts(prev => prev.map(product => 
-      product.id === updatedProduct.id ? updatedProduct : product
-    ));
+  const handleEditProduct = async (updatedProduct: Product) => {
+    try {
+      const prod = await (await import('./lib/db')).updateProduct(updatedProduct);
+      setProducts(prev => prev.map(p => p.id === prod.id ? prod : p));
+    } catch (err) {
+      console.error('Update failed', err);
+      alert('Failed to update product');
+    }
   };
 
-  const handleDeleteProduct = (productId: string) => {
-    setProducts(prev => prev.filter(product => product.id !== productId));
+  const handleDeleteProduct = async (productId: string) => {
+    try {
+      await (await import('./lib/db')).deleteProduct(productId);
+      setProducts(prev => prev.filter(product => product.id !== productId));
+    } catch (err) {
+      console.error('Delete failed', err);
+      alert('Failed to delete product');
+    }
   };
+
+  // load products from DB on mount
+  useState(() => {
+    (async () => {
+      try {
+        const list = await (await import('./lib/db')).fetchProducts();
+        if (list && list.length) setProducts(list);
+      } catch (err) {
+        console.warn('Could not load products from DB, using local seed', err);
+      }
+    })();
+  });
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

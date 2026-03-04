@@ -4,7 +4,7 @@ import { X, Lock, User } from 'lucide-react';
 interface AdminLoginModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onLogin: (username: string, password: string) => boolean;
+  onLogin: (email: string, password: string) => Promise<boolean>;
 }
 
 export function AdminLoginModal({ isOpen, onClose, onLogin }: AdminLoginModalProps) {
@@ -20,19 +20,22 @@ export function AdminLoginModal({ isOpen, onClose, onLogin }: AdminLoginModalPro
     setError('');
     setLoading(true);
 
-    // Simulate authentication delay
-    await new Promise(resolve => setTimeout(resolve, 500));
-
-    if (onLogin(username, password)) {
-      setUsername('');
-      setPassword('');
-      onClose();
-    } else {
-      setError('Invalid credentials. Try admin/admin123');
-      setPassword('');
+    // perform login via provided handler
+    try {
+      const ok = await onLogin(username, password);
+      if (ok) {
+        setUsername('');
+        setPassword('');
+        onClose();
+      } else {
+        setError('Invalid credentials.');
+        setPassword('');
+      }
+    } catch (err) {
+      setError('Login failed.');
+    } finally {
+      setLoading(false);
     }
-    
-    setLoading(false);
   };
 
   const handleClose = () => {

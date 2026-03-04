@@ -8,7 +8,7 @@ interface HeaderProps {
   onCartClick: () => void;
   onDashboardClick?: () => void;
   isAdminLoggedIn?: boolean;
-  onAdminLogin?: (username: string, password: string) => boolean;
+  onAdminLogin?: (email: string, password: string) => Promise<boolean>;
   onAdminLogout?: () => void;
 }
 
@@ -46,8 +46,9 @@ export function Header({ onCartClick, onDashboardClick, isAdminLoggedIn = false,
     }
   };
 
-  const handleAdminLogin = (username: string, password: string): boolean => {
-    if (onAdminLogin?.(username, password)) {
+  const handleAdminLogin = async (username: string, password: string): Promise<boolean> => {
+    const ok = await onAdminLogin?.(username, password);
+    if (ok) {
       setAdminLoginModalOpen(false);
       onDashboardClick?.();
       return true;
